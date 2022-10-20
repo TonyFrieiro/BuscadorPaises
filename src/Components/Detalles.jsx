@@ -3,10 +3,16 @@ import { CartContext } from "./CartContext"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import { useEffect } from "react"
+import Header from "./Header"
+import { BsArrowLeft} from "react-icons/bs";
+
 
 function Detalles(){
     const {goProducto} = useContext(CartContext)
     const {producto} = useContext(CartContext)
+
+    const {theme} = useContext(CartContext)
+    const {toggleTheme} = useContext(CartContext)
     
 
     let border= (producto.e.borders)
@@ -21,8 +27,9 @@ function Detalles(){
     
     
     return(
-        <div>
-            <Link to ={"/"} className="btn btn-primary detallesGoBack">  Go Back </Link>
+        <div className="contenedorContenedorDetalles" id={theme}>
+            <Header></Header>
+            <Link to ={"/"} className="btn btn-primary detallesGoBack"><BsArrowLeft/>  Go Back </Link>
             <div className="contenedorDetalles">
                 <div>
                     <img src={paisIMG} alt="" />

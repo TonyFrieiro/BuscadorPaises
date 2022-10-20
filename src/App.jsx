@@ -10,7 +10,6 @@ function App() {
   return (
     <CartContextProvider>
       <BrowserRouter>
-        <Header></Header>
         <Routes>
           <Route path="/" element={<Catalogo></Catalogo>} />
           <Route path = "/item/:id" element = {<Detalles></Detalles>} />
