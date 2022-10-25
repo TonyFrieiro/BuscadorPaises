@@ -10,7 +10,6 @@ import { BsSearch} from "react-icons/bs";
 
 
 
-
 function Catalogo (){
 
     const {producto} = useContext(CartContext)
@@ -30,6 +29,8 @@ function Catalogo (){
         obtenerDatos()
         
     },[])
+
+
 
     const obtenerDatos = async()=>{
         const data = await fetch("https://restcountries.com/v3.1/all")
@@ -88,6 +89,29 @@ function Catalogo (){
         filtroRegion(regionAFiltrar)
     }
 
+    const mostrador = () =>{
+        return(
+            listaFiltrada.slice(1,11).map(item => (
+                <div class="col">
+                    <div class="card">
+                        <Link to ={"/item/" + item.id} onClick={()=>goProducto(item)} class = "text-decoration-none"> 
+                            <img src={item.flags["png"]} class="card-img-top" width="400px" height="200px" alt="" />
+                            <div class="card-body">
+                                <h5 class="card-title">{item.name.common}</h5>
+                                <p class="card-text ">Population: <p>{item.population}</p></p>
+                                <p class="card-text">Region: <p>{item.region}</p></p>
+                                <p class="card-text">Capital: <p>{item.capital}</p></p>
+                            
+                            
+                            </div>
+                        </Link>
+                    </div>
+                </div>
+            )) 
+        ) 
+            
+    }
+
     
 
     return(
@@ -109,24 +133,24 @@ function Catalogo (){
             </div>
             <div class="row row-cols-1 row-cols-md-4 g-4">
                 {   
-                    listaFiltrada.map(item => (
-                        <div class="col">
-                            <div class="card">
-                                <Link to ={"/item/" + item.id} onClick={()=>goProducto(item)} class = "text-decoration-none"> 
-                                    <img src={item.flags["png"]} class="card-img-top" width="400px" height="200px" alt="" />
-                                    <div class="card-body">
-                                        <h5 class="card-title">{item.name.common}</h5>
-                                        <p class="card-text ">Population: <p>{item.population}</p></p>
-                                        <p class="card-text">Region: <p>{item.region}</p></p>
-                                        <p class="card-text">Capital: <p>{item.capital}</p></p>
+                    // listaFiltrada.map(item => (
+                    //     <div class="col">
+                    //         <div class="card">
+                    //             <Link to ={"/item/" + item.id} onClick={()=>goProducto(item)} class = "text-decoration-none"> 
+                    //                 <img src={item.flags["png"]} class="card-img-top" width="400px" height="200px" alt="" />
+                    //                 <div class="card-body">
+                    //                     <h5 class="card-title">{item.name.common}</h5>
+                    //                     <p class="card-text ">Population: <p>{item.population}</p></p>
+                    //                     <p class="card-text">Region: <p>{item.region}</p></p>
+                    //                     <p class="card-text">Capital: <p>{item.capital}</p></p>
                                       
                                     
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
-                    ))
-                    
+                    //                 </div>
+                    //             </Link>
+                    //         </div>
+                    //     </div>
+                    // ))
+                    mostrador()   
                 }
                 
             </div>

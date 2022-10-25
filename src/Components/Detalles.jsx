@@ -31,8 +31,8 @@ function Detalles(){
             <Header></Header>
             <Link to ={"/"} className="btn btn-primary detallesGoBack"><BsArrowLeft/>  Go Back </Link>
             <div className="contenedorDetalles">
-                <div>
-                    <img src={paisIMG} alt="" />
+                <div className="containerImgDetalles">
+                    <img className="imgDetalles" src={paisIMG} alt="" />
                 </div>
                 <div>
                     <h2 >{paisName}</h2>
