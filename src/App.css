@@ -98,7 +98,8 @@
   border-bottom-right-radius: 10px;
   border-left: 0px;
   padding: 10px;
-  padding-right: 70px;
+  
+  
   
 }
 
@@ -112,7 +113,11 @@
 
 @media screen and (max-width: 347px) {
   .barraBuscador input{
-    width: 180px;
+    width: 140px;
+    size: 2px;
+  }
+  .barraBuscador input::placeholder{
+    font-size: smaller;
   }
 }
 

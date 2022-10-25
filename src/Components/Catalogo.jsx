@@ -86,12 +86,13 @@ function Catalogo (){
 
     const handleSelectChange=(event)=>{
         let regionAFiltrar = (event.value)
+        setListaFiltrada(lista)
         filtroRegion(regionAFiltrar)
     }
 
     const mostrador = () =>{
         return(
-            listaFiltrada.slice(1,11).map(item => (
+            listaFiltrada.slice(0,10).map(item => (
                 <div class="col">
                     <div class="card">
                         <Link to ={"/item/" + item.id} onClick={()=>goProducto(item)} class = "text-decoration-none"> 
@@ -120,7 +121,7 @@ function Catalogo (){
             <div className="containerBuscador">
                 <div className="barraBuscador">
                     <button className="buttonBuscador"><BsSearch/></button>
-                    <input type="text" placeholder=" Ingresar pais a buscar..." value={busqueda} onChange={handleChange}/>
+                    <input type="text" placeholder =" Ingresar pais a buscar..." value={busqueda} onChange={handleChange}/>
                 </div>
                 <div>
                     <Select
